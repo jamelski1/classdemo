@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoops to Class - Ice Cream Delivery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Hero -->
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">Scoops to Class</div>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#order">Order Now</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn">
+        Cart (<span id="cartCount">0</span>)
+      </button>
+    </nav>
+    <div class="hero-content">
+      <h1>Ice Cream Delivered to Your Classroom</h1>
+      <p>Fresh scoops, sundaes &amp; shakes brought right to your door between classes. No more melting on the walk back!</p>
+      <a href="#menu" class="btn btn-primary">See the Menu</a>
+    </div>
+  </header>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">1</div>
+        <h3>Pick Your Flavor</h3>
+        <p>Browse our menu and add your favorites to the cart.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">2</div>
+        <h3>Tell Us Your Room</h3>
+        <p>Enter your classroom number and preferred delivery time.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">3</div>
+        <h3>We Deliver!</h3>
+        <p>Our team brings your ice cream in an insulated bag so it arrives perfectly cold.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="scoops">Scoops</button>
+      <button class="filter-btn" data-filter="sundaes">Sundaes</button>
+      <button class="filter-btn" data-filter="shakes">Shakes</button>
+      <button class="filter-btn" data-filter="toppings">Toppings</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <!-- Items injected by JS -->
+    </div>
+  </section>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty. Add some ice cream!</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        Total: <span id="cartTotal">$0.00</span>
+      </div>
+      <a href="#order" class="btn btn-primary btn-block" id="checkoutBtn">Checkout</a>
+    </div>
+  </aside>
+
+  <!-- Order Form -->
+  <section id="order" class="order-section">
+    <h2>Place Your Order</h2>
+    <form class="order-form" id="orderForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="e.g. Alex Johnson">
+        </div>
+        <div class="form-group">
+          <label for="room">Classroom / Room #</label>
+          <input type="text" id="room" name="room" required placeholder="e.g. Room 204">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="building">Building</label>
+          <select id="building" name="building" required>
+            <option value="">Select building...</option>
+            <option value="Main Hall">Main Hall</option>
+            <option value="Science Wing">Science Wing</option>
+            <option value="Arts Building">Arts Building</option>
+            <option value="Library">Library</option>
+            <option value="Gym Complex">Gym Complex</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="deliveryTime">Delivery Time</label>
+          <select id="deliveryTime" name="deliveryTime" required>
+            <option value="">Select a time...</option>
+            <option value="10:00 AM">10:00 AM - Morning Break</option>
+            <option value="12:00 PM">12:00 PM - Lunch</option>
+            <option value="1:30 PM">1:30 PM - After Lunch</option>
+            <option value="3:00 PM">3:00 PM - Afternoon Break</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="notes">Special Instructions</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Allergies, extra napkins, etc."></textarea>
+      </div>
+      <div class="order-summary" id="orderSummary">
+        <h3>Order Summary</h3>
+        <div id="orderSummaryItems"></div>
+        <div class="order-summary-total">
+          Total: <span id="orderTotal">$0.00</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+    </form>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay" id="confirmationModal">
+    <div class="modal">
+      <div class="modal-icon">&#127846;</div>
+      <h2>Order Confirmed!</h2>
+      <p id="confirmationMsg">Your ice cream is on its way to Room 204 at 12:00 PM.</p>
+      <button class="btn btn-primary" id="modalClose">Sweet!</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Scoops to Class. Made with ice cream and love.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
